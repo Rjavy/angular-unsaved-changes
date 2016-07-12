@@ -1,5 +1,3 @@
-
-
 # Angular unsaved changes directive
 
 Display an alert when the user modified a form field and try to leave the page without save. [**Demo here!**](http://memescualtos.com)
