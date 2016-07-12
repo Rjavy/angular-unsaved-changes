@@ -87,7 +87,8 @@
                 }
 
                 //value change?
-                ngModel.$isChanged = value == ngModel.$initialValue;
+                ngModel.$isChanged = !( value == ngModel.$initialValue );
+
 
             });
         }
