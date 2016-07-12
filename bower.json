@@ -4,7 +4,7 @@
     "Rodrigo Rodriguez <rjavier.rodriguez@outlook.com>"
   ],
   "description": "Display an alert when the user modified a form field and try to leave the page without save.",
-  "main": "",
+  "main": "dist/unsavedChanges.js",
   "keywords": [
     "angular",
     "unsaved",
@@ -16,8 +16,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "demo"
   ],
   "dependencies": {
     "angular": "^1.5.7",
