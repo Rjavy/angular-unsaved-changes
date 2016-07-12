@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Rjavy/angular-unsaved-changes#readme",
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-uglify": "^1.5.4",
     "pump": "^1.0.1"
   }
