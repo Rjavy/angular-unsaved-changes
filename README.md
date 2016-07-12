@@ -36,3 +36,7 @@ Bower install angualr-unsaved-changes-directive --save
 ```html
  <input unsaved-element type="text" class="form-control"  placeholder="Could type your name :)" ng-model="yourName">
 ```
+
+
+
+
