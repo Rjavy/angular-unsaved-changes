@@ -1,0 +1,27 @@
+{
+  "name": "unsaved-changes",
+  "authors": [
+    "Rodrigo Rodriguez <rjavier.rodriguez@outlook.com>"
+  ],
+  "description": "Display an alert when the user modified a form field and try to leave the page without save.",
+  "main": "",
+  "keywords": [
+    "angular",
+    "unsaved",
+    "changes"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "bootstrap": "^3.3.6"
+  }
+}

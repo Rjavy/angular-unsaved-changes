@@ -1,0 +1,9 @@
+.centered-form {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.centered-form > input {
+    padding: 5px;
+    font-size: 20px;
+}
