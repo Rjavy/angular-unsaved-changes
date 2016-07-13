@@ -49,13 +49,13 @@
                     showAlert(event);  
             });
 
-            $('body').on('click', 'a', function (event) {
+            $('.sidebar').on('click', 'a', function (event) {
                 if (locationChangeByRoute){       
                     showAlert(event);
                 } else {
                     locationChangeByRoute = true;
                 }
-     
+
             });           
 
             scope.destroyUnsavedChanges = function () {
