@@ -13,14 +13,12 @@
   "license": "MIT",
   "homepage": "",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "demo"
+    "/*",
+    "!dist/*"
   ],
   "dependencies": {
     "angular": "^1.5.7",
     "angular-route": "^1.5.7",
-    "bootstrap": "^3.3.6"
+    "jquery": ">= 1.9.1"
   }
 }

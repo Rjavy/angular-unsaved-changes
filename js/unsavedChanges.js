@@ -21,9 +21,8 @@
         return directive;
 
         function link (scope, element, attrs, controller) {
-           
-            $rootScope.$on("$locationChangeStart", function (event, next, current) {
-               
+            var locationChangeByRoute = true;
+            function showAlert(event, eventRunner) {
                 var formInputs = $(element).find("[unsaved-element]");
 
                 $(formInputs).each(function (i, obj) {
@@ -31,17 +30,33 @@
                     var model = angular.element($(obj)).controller('ngModel');
                     
                     if(model.$isChanged && model.$dirty) {
-                    
+            
                        var r = confirm(scope.leavingPageMessage);
-                    
+                       
                         if (!r) {
+                            
+                            
                             event.preventDefault();
                         }
 
                         return false;
                     }
                 });
+            }
+           
+            $rootScope.$on("$locationChangeStart", function (event) {
+                    locationChangeByRoute = false;     
+                    showAlert(event);  
             });
+
+            $('body').on('click', 'a', function (event) {
+                if (locationChangeByRoute){       
+                    showAlert(event);
+                } else {
+                    locationChangeByRoute = true;
+                }
+     
+            });           
 
             scope.destroyUnsavedChanges = function () {
                 scope.$destroy();
@@ -71,7 +86,7 @@
 
         return directive;
 
-        function link (scope, elemet, attrs, ngModel) {
+        function link (scope, element, attrs, ngModel) {
             
             function isEmpty (val) {
                 return ( val === undefined || val == null || val.length <= 0 ) ? null : val;
