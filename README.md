@@ -29,14 +29,23 @@ Bower install angualr-unsaved-changes-directive --save
 
 **leave-page** with **leaving-page-message** in the last one you can change the mmesage to show in the confirm alert.
 
+**leave-page**
+**leaving-page-message** on this you can add your leaving message
+
+
 ```html
-<form leaving-page leaving-page-message="Sure to leave the page?">
+<form leaving-page leaving-page-message="Sure to leave the page?" container-with-links="container-with-a">
 ```
 **unsaved-element** use on each input to validate the changes
 ```html
  <input unsaved-element type="text" class="form-control"  placeholder="Could type your name :)" ng-model="yourName">
 ```
 
-
-
+**container-with-links** On this you can add a container class with you <a> link for your menus
+```html
+    <div class="container-with-a"> 
+        <a href="#/other" class="btn btn-primary btn-lg">Leave page!</a>   
+        <a href="http://google.com" class="btn btn-primary btn-lg">Leave page to google!</a>   
+    </div>
+```
 

@@ -1,0 +1,22 @@
+{
+  "name": "Demo angular unsaved changes",
+  "homepage": "https://github.com/Rjavy/angular-unsaved-changes",
+  "authors": [
+    "Rodrigo Rodriguez <rodrigor@vsisoft.com>"
+  ],
+  "description": "Demo for angular unsaved changes",
+  "main": "index.html",
+  "keywords": [
+    "angular",
+    "jquery",
+    "gulp",
+    "unsaved",
+    "changes"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

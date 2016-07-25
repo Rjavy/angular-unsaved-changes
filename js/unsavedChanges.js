@@ -13,7 +13,8 @@
         var directive = {
             restrict: 'A',
             scope: {
-                leavingPageMessage: '@leavingPageMessage'
+                leavingPageMessage: '@leavingPageMessage',
+                containerWithLinks: '@containerWithLinks'
             },
             link: link
         };
@@ -49,7 +50,7 @@
                     showAlert(event);  
             });
 
-            $('.sidebar').on('click', 'a', function (event) {
+            $("." + scope.containerWithLinks).on('click', 'a', function (event) {
                 if (locationChangeByRoute){       
                     showAlert(event);
                 } else {
