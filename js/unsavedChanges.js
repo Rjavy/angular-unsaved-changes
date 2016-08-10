@@ -13,8 +13,7 @@
         var directive = {
             restrict: 'A',
             scope: {
-                leavingPageMessage: '@leavingPageMessage',
-                containerWithLinks: '@containerWithLinks'
+                leavingPageMessage: '@leavingPageMessage'
             },
             link: link
         };
@@ -22,46 +21,37 @@
         return directive;
 
         function link (scope, element, attrs, controller) {
-            var locationChangeByRoute = true;
-            function showAlert(event, eventRunner) {
-                var formInputs = $(element).find("[unsaved-element]");
-
-                $(formInputs).each(function (i, obj) {
-
-                    var model = angular.element($(obj)).controller('ngModel');
+            function showAlert () {
+                window.onbeforeunload = function(e) {
+                    var formInputs = $(element).find("[unsaved-element]");
+                    var inputs = $(formInputs);
                     
-                    if(model.$isChanged && model.$dirty) {
+                    for (var i = inputs.length - 1; i >= 0; i--) {
+
+                        var model = angular.element(inputs[i]).controller('ngModel');
+                        
+                        if(model.$isChanged && model.$dirty) {
+
+                            dialogText = scope.leavingPageMessage
+                            e.returnValue = scope.leavingPageMessage;
+                            return dialogText;
+
+                        }
+                    }
+                };
+            };
             
-                       var r = confirm(scope.leavingPageMessage);
-                       
+            $rootScope.$on("$locationChangeStart", function (event) {
+                    var msg = window.onbeforeunload(event);
+                    if (msg) {
+                        var r = confirm(msg);
                         if (!r) {
-                            
-                            
                             event.preventDefault();
                         }
-
-                        return false;
-                    }
-                });
-            }
-           
-            $rootScope.$on("$locationChangeStart", function (event) {
-                    locationChangeByRoute = false;     
-                    showAlert(event);  
+                    } 
             });
-
-            $("." + scope.containerWithLinks).on('click', 'a', function (event) {
-                if (locationChangeByRoute){       
-                    showAlert(event);
-                } else {
-                    locationChangeByRoute = true;
-                }
-
-            });           
-
-            scope.destroyUnsavedChanges = function () {
-                scope.$destroy();
-            }
+            //init
+            showAlert();
         }
     }
 })();
