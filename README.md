@@ -1,6 +1,6 @@
 # Angular unsaved changes directive
 
-Display an alert when the user modified a form field and try to leave the page without save. [**Demo here!**](http://memescualtos.com)
+Display an alert when the user modified a form field and try to leave the page without save.
 
 ## To use it
 
@@ -34,18 +34,9 @@ Bower install angualr-unsaved-changes-directive --save
 
 
 ```html
-<form leaving-page leaving-page-message="Sure to leave the page?" container-with-links="container-with-a">
+<form leaving-page leaving-page-message="Sure to leave the page?">
 ```
 **unsaved-element** use on each input to validate the changes
 ```html
  <input unsaved-element type="text" class="form-control"  placeholder="Could type your name :)" ng-model="yourName">
 ```
-
-**container-with-links** On this you can add a container class with you <a> link for your menus
-```html
-    <div class="container-with-a"> 
-        <a href="#/other" class="btn btn-primary btn-lg">Leave page!</a>   
-        <a href="http://google.com" class="btn btn-primary btn-lg">Leave page to google!</a>   
-    </div>
-```
-
