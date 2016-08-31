@@ -1,4 +1,4 @@
-(function () {  
+(function () {
 
     'user strict';
 
@@ -13,7 +13,8 @@
         var directive = {
             restrict: 'A',
             scope: {
-                leavingPageMessage: '@leavingPageMessage'
+                leavingPageMessage: '@leavingPageMessage',
+                changesSaved: '=changesSaved'
             },
             link: link
         };
@@ -25,12 +26,11 @@
                 window.onbeforeunload = function(e) {
                     var formInputs = $(element).find("[unsaved-element]");
                     var inputs = $(formInputs);
-                    
+
                     for (var i = inputs.length - 1; i >= 0; i--) {
 
                         var model = angular.element(inputs[i]).controller('ngModel');
-                        
-                        if(model.$isChanged && model.$dirty) {
+                        if(model.$isChanged && model.$dirty && !scope.changesSaved) {
 
                             dialogText = scope.leavingPageMessage
                             e.returnValue = scope.leavingPageMessage;
@@ -40,15 +40,15 @@
                     }
                 };
             };
-            
+
             $rootScope.$on("$locationChangeStart", function (event) {
                     var msg = window.onbeforeunload(event);
-                    if (msg) {
+                    if (msg && !scope.changesSaved) {
                         var r = confirm(msg);
                         if (!r) {
                             event.preventDefault();
                         }
-                    } 
+                    }
             });
             //init
             showAlert();
@@ -58,9 +58,9 @@
 
 
 (function () {
-    
+
     'use strict';
-   
+
     angular
     .module('unsavedChanges')
     .directive('unsavedElement', UnsavedElement);
@@ -78,13 +78,13 @@
         return directive;
 
         function link (scope, element, attrs, ngModel) {
-            
+
             function isEmpty (val) {
                 return ( val === undefined || val == null || val.length <= 0 ) ? null : val;
             }
 
             scope.$watch(attrs.ngModel, function (value) {
-                
+
                 value = isEmpty(value);
 
                 //If the ngModel is touched or not

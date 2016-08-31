@@ -31,6 +31,7 @@ Bower install angualr-unsaved-changes-directive --save
 
 **leave-page**
 **leaving-page-message** on this you can add your leaving message
+**changes-saved** This is for reset the flag to show the alert or not False => show alert && true don't show the alert.
 
 
 ```html
