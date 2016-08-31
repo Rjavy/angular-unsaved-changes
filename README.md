@@ -35,7 +35,7 @@ Bower install angualr-unsaved-changes-directive --save
 
 
 ```html
-<form leaving-page leaving-page-message="Sure to leave the page?">
+<form leaving-page leaving-page-message="Sure to leave the page?" changes-saved="changesAlreadySaved">
 ```
 **unsaved-element** use on each input to validate the changes
 ```html
