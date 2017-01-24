@@ -8,7 +8,7 @@ Display an alert when the user modified a form field and try to leave the page w
 
 
 ```sh
-Bower install angualr-unsaved-changes-directive --save
+Bower install angular-unsaved-changes-directive --save
 ```
 
 ### Add in your scripts
